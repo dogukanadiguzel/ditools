@@ -5,7 +5,7 @@
 	padding: 40px 0 40px 40px;
 }
 body{
-	background-color: #fff;
+	background-color: #F9F9F9;
 	font:15px/1 calibre, sans-serif;
 	color: #5b5e6d;
 	margin:0;
@@ -134,4 +134,36 @@ footer{
 	margin:20px;
 	text-align: center;
 }
+
+@media(max-width: 768px){
+
+		header #logo,
+		header nav,
+		header nav li,
+		
+		.main,
+		.question,
+		.answer{
+			float: none;
+			text-align: center;
+			width: 100%;
+			clear:both;
+			padding:0;
+			margin:0;
+		}
+		.answer textarea{
+			height: 30px;
+		}
+		header{
+			padding-bottom: 10px;
+		}
+#showcase h1, p{
+	padding: 5px;
+	text-align: center;
+}
+#showcase{
+	margin-top:5px;
+}
+
+		}
 
