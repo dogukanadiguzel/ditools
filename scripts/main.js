@@ -1,12 +1,21 @@
+function isElementInViewport(x) {
+  var dimensions = x.getBoundingClientRect();
+  return (
+    dimensions.top >= 0 &&
+    dimensions.left >= 0 &&
+    dimensions.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    dimensions.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+var items = document.querySelectorAll(".timeline li, .box");
 
-// for(i=0;i<15;i++){}
-getselectvalue1();
-function getselectvalue1(){
-	var selectedvalue=document.getElementById("question1").value;
-	console.log(selectedvalue);
+function callbackFunc() {
+  for (var i = 0; i < items.length; i++) {
+    if (isElementInViewport(items[i])) {
+      items[i].classList.add("in-view");
+    }
+  }
 }
-getselectvalue2();
-function getselectvalue2(){
-	var selectedvalue=document.getElementById("question2").value;
-	console.log(selectedvalue);
-}
+ 
+window.addEventListener("load", callbackFunc);
+window.addEventListener("scroll", callbackFunc);
