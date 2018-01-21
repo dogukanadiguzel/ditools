@@ -58,7 +58,7 @@ header #login{
 	margin-top:30px;
 	padding-top: 0;
 	min-height: 500px;
-	background: url("images/landing3.png") no-repeat;
+	background: url("../images/landing3.png") no-repeat;
 	text-align: right;
 	font-size: 30px
 }
