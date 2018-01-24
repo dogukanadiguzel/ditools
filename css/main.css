@@ -62,6 +62,7 @@ header #login{
 	padding-top: 0;
 	min-height: 500px;
 	background: url("../images/landing3.png") no-repeat ;
+	background-size: cover;
 	text-align: right;
 	font-size: 30px;
 	margin-bottom: 40px;
@@ -77,12 +78,12 @@ header #login{
 	
 	padding-top:0px;
 	padding-right: 0;
-	padding-bottom: 30px;
+	padding-bottom: 0;
 	margin-bottom:0; 
 	margin-top: 0;
 	text-align: left;
 	color: rgb(50, 54, 72);
-	font-size: 65px;
+	font-size: 60px;
 }
 #showcase p {
 	
@@ -98,34 +99,55 @@ header #login{
 	background-color: #00aced;
 	padding-bottom: 
 }
-#boxes{
-	padding-top: 30px;
-	background-color:#fff;
-	display: flex;
-}
+
 #beforebox{
 	background-color: #00aeff;
 }
-#boxes{
-	background: linear-gradient(to bottom,  #00aeff 0%,#00e0a4 100%);
-}
+
 #beforebox h1{
-	padding-top: 40px;
+	padding-top: 70px;
 	text-align: center;
 	font-size: 40px;
 	margin:0;
 	color: white;
 }
+#boxes{
+	padding-top: 30px;
+	width:100%;
+	background-color:#fff;
+	display: inline-block;
+	background: linear-gradient(to bottom,  #00aeff 0%,#00e0a4 100%);
+	margin:0;
+}
 .box{
 	display: inline-block;
-	width: 20%;
+	float:left;
+	width: 300px;
 	height: 50vh;
 	text-align: center;
-	margin:3%;
+	margin:30px;
 	color:#00aced;
 	background-color: #FFF;	
 	opacity: 0;
 	border-radius: 8px;
+}
+#boxes .in-view{
+	display: inline-block;
+	width: 310px;
+	height: 360px;
+	text-align: center;
+	margin:30px 50px;
+	color:#444;
+	background-color: #fff;	
+	animation: flipcard 1s;
+	opacity: 1;
+	padding:0 5px;
+}
+
+.box p{
+	
+	border-radius: 20px;
+	padding:  5%;
 }
 
 #box1 h2::before {
@@ -149,24 +171,7 @@ header #login{
    color:#00B1F6; 
    font-size: 80px;
 }
-#boxes .in-view{
-	display: inline-block;
-	width: 25%;
-	height: 360px;
-	text-align: center;
-	margin:5%;
-	color:#444;
-	background-color: #fff;	
-	animation: flipcard 1s;
-	opacity: 1;
-	padding:0 5px;
-}
 
-.box p{
-	
-	border-radius: 20px;
-	padding: 0 5%;
-}
 
 #howitworks{
 	padding: 40px;
@@ -183,16 +188,13 @@ footer {
 }
 
 @media(max-width: 768px){
-
-		
-
 		.main,
 		#showcase,
 		#landingimage,
 		#showcase h1,
 		#showcase p,
 		#maintop,
-		.box .inview
+		.box 
 		{
 			float: none;
 			text-align: center;
@@ -201,6 +203,10 @@ footer {
 			padding:0;
 			margin:0;
 		}
+		#landingimage{
+	min-height: 300px;
+}
+
 		.button{
 		margin:auto;
 		margin-top: 30px;
@@ -209,20 +215,16 @@ footer {
 		#showcase p{
 			padding: 10px;
 		}
-		
-		}
 		header{
 			padding-bottom: 10px;
 		}
-}
+
 
 }
 
 /*Timeline starts here*/
 
-#ball{
-	font-size: 200px;
-}
+
 .timeline ul{
 	background-color: #E9F0F5;
 	margin:0;
@@ -246,7 +248,7 @@ footer {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  z-index: 1;
+  z-index: 2;
   background-position: center;
   background-size: 40px;
   opacity: 0;
@@ -344,14 +346,14 @@ footer {
 }
 .timeline ul li.in-view::before {
 	content: " ";
-  position: absolute;
+	position: absolute;
   left: 50%;
   bottom: 10px;
   transform: translate(-50%,50%);
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  z-index: 1;
+  z-index: 2;
   background-position: center;
   background-size: 40px;
   opacity: 1;
@@ -365,6 +367,8 @@ footer {
   transform: translate(-50%,50%);
   width: 60px;
   height: 60px;
+ box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+ z-index: 1;
   border-radius: 50%;
   background: #00aced;
   background-position: center;
@@ -372,7 +376,16 @@ footer {
   opacity: 1;
   animation: bounce-image .6s ;
 }
-
+#first-icon li .in-view::after {
+	background-color: green;
+}
+#second-icon li .in-view::after {
+	background-color: green;
+}
+#third-icon li .in-view::after {
+	background-color: green;
+	content:"fdafafas";
+}
 
 .timeline ul li.in-view:nth-child(odd) div {
  animation: slideleft .6s ;
@@ -402,17 +415,18 @@ footer {
   }
    
   .timeline ul li div {
-    width: calc(100vw - 91px);
+    width: calc(100vw - 150px);
   }
+  .timeline ul div:nth-child(even) div {
+  	box-shadow: 2px 3px 0 #d7e4ed;
+  left: 55px;
+}
    
-  .timeline ul li:nth-child(even) div {
-    left: 45px;
-  }
-   
-  .timeline ul li:nth-child(even) div::before {
+  .timeline ul div:nth-child(even) div::before {
     left: -15px;
     border-width: 8px 16px 8px 0;
-    border-color: transparent #F45B69 transparent transparent;
+    border-color: transparent #fff transparent transparent;
+
   }
 }
 @keyframes slideleft{
